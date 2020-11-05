@@ -52,7 +52,7 @@ foreach ($appDir in $projectApps) {
     git commit -m "auto test $version"
     #git status
     Write-Host "pushing latest updates to remote repository.." -ForegroundColor Green
-    #git push --all origin
+    git push --all origin
 
     # building apks
     #Set-Location $projDir$appDir
@@ -78,7 +78,7 @@ Set-Location "$projDir$apksDir$version"
 
 # upload to github
 #must have github cli installed and authenticated for this to work
-$releaseLink = gh release create $version -t "Apk release $version" $list.Name
+$releaseLink = gh release create $version -t "Apk release v$version" $list.Name
 
 # send mail
 $subject = "Latest Apps Update v$version"
